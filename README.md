@@ -26,7 +26,6 @@ Este projeto consiste na criação de uma **API RESTful** em **C# com ASP.NET Co
 │── 📁 Models
 │── 📁 Data (Contexto do banco de dados)
 │── 📁 Tests (Testes unitários)
-│── 📁 WinFormsApp (Aplicativo cliente)
 │── Program.cs
 │── Startup.cs
 ```
