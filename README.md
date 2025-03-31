@@ -84,28 +84,28 @@ SQLite, aplicando boas práticas de arquitetura e desenvolvimento para garantir
 eficiência, segurança e manutenibilidade. 
 
 **1. Requisitos Funcionais** 
-  1. Implementar os métodos CRUD para a entidade Produto, com os seguintes 
+  - Implementar os métodos CRUD para a entidade Produto, com os seguintes 
   atributos: 
       - Id (auto gerado pelo banco de dados) 
       - Nome (string, deve ser descritivo e único) 
       - Preço (decimal, maior que zero) 
       - CategoriaId (relacionamento com a entidade Categoria) 
-  2. Implementar os métodos CRUD para a entidade Categoria, com os seguintes 
+  - Implementar os métodos CRUD para a entidade Categoria, com os seguintes 
   atributos: 
       - Id (auto gerado pelo banco de dados) 
       - o Nome (string, deve ser descritivo e único)
-  3. Implementar autenticação JWT, garantindo que apenas usuários autenticados 
+  - Implementar autenticação JWT, garantindo que apenas usuários autenticados 
   possam acessar endpoints protegidos. 
-  4. Implementar paginação para a listagem de produtos. 
-  5. Implementar logs e monitoramento utilizando ILogger<T>. 
-  6. Implementar um endpoint que permita consultar o histórico de preços de um 
+  - Implementar paginação para a listagem de produtos. 
+  - Implementar logs e monitoramento utilizando ILogger<T>. 
+  - Implementar um endpoint que permita consultar o histórico de preços de um 
   produto. 
-  7. Criar um endpoint que retorne relatórios e estatísticas, como: 
+  - Criar um endpoint que retorne relatórios e estatísticas, como: 
       - Total de produtos cadastrados 
       - Média de preços dos produtos 
       - Valor total dos produtos no estoque 
-  8. Aplicar validações rigorosas na entrada de dados. 
-  9. Criar um aplicativo WinForms que consuma a API, com as seguintes 
+  - Aplicar validações rigorosas na entrada de dados. 
+  - Criar um aplicativo WinForms que consuma a API, com as seguintes 
   funcionalidades: 
     - Interface gráfica com DataGridView para listar produtos. 
     - Botões para Criar, Atualizar e Excluir produtos com base no Grid View. 
