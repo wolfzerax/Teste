@@ -89,28 +89,37 @@ eficiência, segurança e manutenibilidade.
       - Id (auto gerado pelo banco de dados) 
       - Nome (string, deve ser descritivo e único) 
       - Preço (decimal, maior que zero) 
-      - CategoriaId (relacionamento com a entidade Categoria) 
+      - CategoriaId (relacionamento com a entidade Categoria)
+        
   - Implementar os métodos CRUD para a entidade Categoria, com os seguintes 
   atributos: 
       - Id (auto gerado pelo banco de dados) 
       - o Nome (string, deve ser descritivo e único)
+        
   - Implementar autenticação JWT, garantindo que apenas usuários autenticados 
   possam acessar endpoints protegidos. **(Opcional, caso fizer será um diferencial para o teste)**
-  - Implementar paginação para a listagem de produtos. 
+
+  - Implementar paginação para a listagem de produtos.
+    
   - Implementar logs e monitoramento utilizando ILogger<T>. **(Opcional, caso fizer será um diferencial para o teste)**
+    
   - Implementar um endpoint que permita consultar o histórico de preços de um 
   produto. **(Opcional, caso fizer será um diferencial para o teste)**
+
   - Criar um endpoint que retorne relatórios e estatísticas, como: 
       - Total de produtos cadastrados 
       - Média de preços dos produtos 
-      - Valor total dos produtos no estoque 
-  - Aplicar validações rigorosas na entrada de dados. 
+      - Valor total dos produtos no estoque
+        
+  - Aplicar validações rigorosas na entrada de dados.
+    
   - Criar um aplicativo WinForms que consuma a API, com as seguintes 
   funcionalidades: 
     - Interface gráfica com DataGridView para listar produtos. 
     - Botões para Criar, Atualizar e Excluir produtos com base no Grid View. 
     - Uso de HttpClient para realizar as requisições à API. 
-    o Models para manipular os dados obtidos da API. 
+    o Models para manipular os dados obtidos da API.
+
 **2. Requisitos Técnicos**
     - Utilizar ASP.NET Core para desenvolver a API. 
     - Utilizar Entity Framework Core com SQLite para persistência de dados. 
@@ -118,6 +127,7 @@ eficiência, segurança e manutenibilidade.
 DTOs). 
     - Criar testes unitários para validar as funcionalidades críticas. 
     - Utilizar WinForms para criar o aplicativo cliente que consome a API. 
+    
 **3. Regras de Negócio Avançadas** 
     - O nome do produto deve ser armazenado sempre com a primeira letra 
     maiúscula. 
