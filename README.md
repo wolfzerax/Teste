@@ -95,11 +95,11 @@ eficiência, segurança e manutenibilidade.
       - Id (auto gerado pelo banco de dados) 
       - o Nome (string, deve ser descritivo e único)
   - Implementar autenticação JWT, garantindo que apenas usuários autenticados 
-  possam acessar endpoints protegidos. 
+  possam acessar endpoints protegidos. **(Opcional, caso fizer será um diferencial para o teste)**
   - Implementar paginação para a listagem de produtos. 
-  - Implementar logs e monitoramento utilizando ILogger<T>. 
+  - Implementar logs e monitoramento utilizando ILogger<T>. **(Opcional, caso fizer será um diferencial para o teste)**
   - Implementar um endpoint que permita consultar o histórico de preços de um 
-  produto. 
+  produto. **(Opcional, caso fizer será um diferencial para o teste)**
   - Criar um endpoint que retorne relatórios e estatísticas, como: 
       - Total de produtos cadastrados 
       - Média de preços dos produtos 
