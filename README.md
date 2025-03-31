@@ -9,10 +9,10 @@ Este projeto consiste na criação de uma **API RESTful** em **C# com ASP.NET Co
 - **ASP.NET Core** (Desenvolvimento da API)
 - **Entity Framework Core** (ORM para persistência de dados)
 - **SQLite** (Banco de dados leve para armazenamento)
-- **JWT (JSON Web Token)** (Autenticação e segurança) (Opcional, caso fizer será um diferencial para o teste)
+- **JWT (JSON Web Token)** (Autenticação e segurança) **(Opcional, caso fizer será um diferencial para o teste)**
 - **WinForms** (Interface gráfica para consumo da API)
 - **HttpClient** (Consumo de API no cliente WinForms)
-- **ILogger** (Monitoramento e logs) (Opcional, caso fizer será um diferencial para o teste)
+- **ILogger** (Monitoramento e logs) **(Opcional, caso fizer será um diferencial para o teste)**
 - **xUnit** (Testes unitários)
 
 📂 Estrutura do Projeto
@@ -83,7 +83,7 @@ Neste teste, você deverá desenvolver uma API RESTful em C# com ASP.NET Core e
 SQLite, aplicando boas práticas de arquitetura e desenvolvimento para garantir 
 eficiência, segurança e manutenibilidade. 
 
-1. Requisitos Funcionais 
+**1. Requisitos Funcionais** 
   1. Implementar os métodos CRUD para a entidade Produto, com os seguintes 
   atributos: 
       - Id (auto gerado pelo banco de dados) 
@@ -106,50 +106,55 @@ eficiência, segurança e manutenibilidade.
       - Valor total dos produtos no estoque 
   8. Aplicar validações rigorosas na entrada de dados. 
   9. Criar um aplicativo WinForms que consuma a API, com as seguintes 
-funcionalidades: 
+  funcionalidades: 
     - Interface gráfica com DataGridView para listar produtos. 
     - Botões para Criar, Atualizar e Excluir produtos com base no Grid View. 
     - Uso de HttpClient para realizar as requisições à API. 
     o Models para manipular os dados obtidos da API. 
-2. Requisitos Técnicos 
+**2. Requisitos Técnicos**
     - Utilizar ASP.NET Core para desenvolver a API. 
     - Utilizar Entity Framework Core com SQLite para persistência de dados. 
     - Aplicar arquitetura em camadas separadas (Controllers, Services, Repositories, 
 DTOs). 
     - Criar testes unitários para validar as funcionalidades críticas. 
     - Utilizar WinForms para criar o aplicativo cliente que consome a API. 
-3. Regras de Negócio Avançadas 
+**3. Regras de Negócio Avançadas** 
     - O nome do produto deve ser armazenado sempre com a primeira letra 
     maiúscula. 
     - O preço do produto não pode ser negativo ou igual a zero. 
 
-3. Instruções
+**4. Instruções**
    - Criar uma documentação mínima explicando como rodar o projeto e exemplos de 
     requisições. 
    - Desenvolver o aplicativo WinForms, garantindo integração com a API. 
    - Enviar um link para o repositório atualizado.
        
-Paginação 
-A paginação permite que grandes volumes de dados sejam retornados de forma eficiente, 
-evitando sobrecarregar o banco de dados e melhorando a experiência do usuário. 
-Exemplo de implementação no ASP.NET Core: 
+   - Paginação 
+      A paginação permite que grandes volumes de dados sejam retornados de forma eficiente, 
+      evitando sobrecarregar o banco de dados e melhorando a experiência do usuário. 
+      Exemplo de implementação no ASP.NET Core: 
 
+```csharp
 public async Task<IActionResult> GetProdutos(int pageNumber = 1, int pageSize = 10) 
 { 
- var produtos = await _context.Produtos 
- .OrderBy(p => p.Nome) 
- .Skip((pageNumber - 1) * pageSize) 
- .Take(pageSize) 
- .ToListAsync(); 
- return Ok(produtos); 
-} 
+    var produtos = await _context.Produtos 
+        .OrderBy(p => p.Nome) 
+        .Skip((pageNumber - 1) * pageSize) 
+        .Take(pageSize) 
+        .ToListAsync(); 
+        
+    return Ok(produtos); 
+}
+```
 
 Chamando o endpoint: GET /api/produtos?pageNumber=1&pageSize=10
 
-(Opcional, caso fizer será um diferencial para o teste)
+**(Opcional, caso fizer será um diferencial para o teste)**
 Monitoramento e Logs 
 
 Para registrar eventos importantes, podemos utilizar ILogger<T> no ASP.NET Core: 
+
+```csharp
 public class ProdutoService 
 { 
  private readonly ILogger<ProdutoService> _logger; 
@@ -162,7 +167,9 @@ public class ProdutoService
  _logger.LogInformation($"Produto {produto.Nome} adicionado em 
 {DateTime.UtcNow}"); 
  } 
-} 
+}
+```
+
 Os logs podem ser visualizados no console ou configurados para serem salvos em 
 arquivos.
 
