@@ -9,10 +9,10 @@ Este projeto consiste na criação de uma **API RESTful** em **C# com ASP.NET Co
 - **ASP.NET Core** (Desenvolvimento da API)
 - **Entity Framework Core** (ORM para persistência de dados)
 - **SQLite** (Banco de dados leve para armazenamento)
-- **JWT (JSON Web Token)** (Autenticação e segurança)
+- **JWT (JSON Web Token)** (Autenticação e segurança) (Opcional, caso fizer será um diferencial para o teste)
 - **WinForms** (Interface gráfica para consumo da API)
 - **HttpClient** (Consumo de API no cliente WinForms)
-- **ILogger** (Monitoramento e logs)
+- **ILogger** (Monitoramento e logs) (Opcional, caso fizer será um diferencial para o teste)
 - **xUnit** (Testes unitários)
 
 📂 Estrutura do Projeto
@@ -54,10 +54,10 @@ A API estará disponível em `http://localhost:5000`.
 API
 
 ✅ CRUD de Produtos e Categorias\
-✅ Autenticação via JWT\
-✅ Paginação de produtos\
-✅ Registro de logs com ILogger\
-✅ Histórico de preços e relatórios
+✅ Autenticação via JWT\ (Opcional, caso fizer será um diferencial para o teste)
+✅ Paginação de produtos\ 
+✅ Registro de logs com ILogger\ (Opcional, caso fizer será um diferencial para o teste)
+✅ Histórico de preços e relatórios (Opcional, caso fizer será um diferencial para o teste)
 
 Aplicação WinForms
 
@@ -78,6 +78,90 @@ POST /api/produtos
   "categoriaId": 1
 }
 ```
+
+Neste teste, você deverá desenvolver uma API RESTful em C# com ASP.NET Core e 
+SQLite, aplicando boas práticas de arquitetura e desenvolvimento para garantir 
+eficiência, segurança e manutenibilidade. 
+
+1. Requisitos Funcionais 
+  1. Implementar os métodos CRUD para a entidade Produto, com os seguintes 
+  atributos: 
+      o Id (auto gerado pelo banco de dados) 
+      o Nome (string, deve ser descritivo e único) 
+      o Preço (decimal, maior que zero) 
+      o CategoriaId (relacionamento com a entidade Categoria) 
+  2. Implementar os métodos CRUD para a entidade Categoria, com os seguintes 
+  atributos: 
+      o Id (auto gerado pelo banco de dados) 
+      o Nome (string, deve ser descritivo e único) 
+  3. Implementar autenticação JWT, garantindo que apenas usuários autenticados 
+  possam acessar endpoints protegidos. 
+  4. Implementar paginação para a listagem de produtos. 
+  5. Implementar logs e monitoramento utilizando ILogger<T>. 
+  6. Implementar um endpoint que permita consultar o histórico de preços de um 
+  produto. 
+  7. Criar um endpoint que retorne relatórios e estatísticas, como: 
+      o Total de produtos cadastrados 
+      o Média de preços dos produtos 
+      o Valor total dos produtos no estoque 
+  8. Aplicar validações rigorosas na entrada de dados. 
+  9. Criar um aplicativo WinForms que consuma a API, com as seguintes 
+funcionalidades: 
+    o Interface gráfica com DataGridView para listar produtos. 
+    o Botões para Criar, Atualizar e Excluir produtos com base no Grid View. 
+    o Uso de HttpClient para realizar as requisições à API. 
+    o Models para manipular os dados obtidos da API. 
+2. Requisitos Técnicos 
+    o Utilizar ASP.NET Core para desenvolver a API. 
+    o Utilizar Entity Framework Core com SQLite para persistência de dados. 
+    o Aplicar arquitetura em camadas separadas (Controllers, Services, Repositories, 
+DTOs). 
+    o Criar testes unitários para validar as funcionalidades críticas. 
+    o Utilizar WinForms para criar o aplicativo cliente que consome a API. 
+3. Regras de Negócio Avançadas 
+    o O nome do produto deve ser armazenado sempre com a primeira letra 
+    maiúscula. 
+    o O preço do produto não pode ser negativo ou igual a zero. 
+
+3. Instruções
+  1. Criar uma documentação mínima explicando como rodar o projeto e exemplos de 
+    requisições. 
+  2. Desenvolver o aplicativo WinForms, garantindo integração com a API. 
+  3. Enviar um link para o repositório atualizado.
+       
+Paginação 
+A paginação permite que grandes volumes de dados sejam retornados de forma eficiente, 
+evitando sobrecarregar o banco de dados e melhorando a experiência do usuário. 
+Exemplo de implementação no ASP.NET Core: 
+public async Task<IActionResult> GetProdutos(int pageNumber = 1, int pageSize = 10) 
+{ 
+ var produtos = await _context.Produtos 
+ .OrderBy(p => p.Nome) 
+ .Skip((pageNumber - 1) * pageSize) 
+ .Take(pageSize) 
+ .ToListAsync(); 
+ return Ok(produtos); 
+} 
+Chamando o endpoint: GET /api/produtos?pageNumber=1&pageSize=10
+
+(Opcional, caso fizer será um diferencial para o teste)
+Monitoramento e Logs 
+Para registrar eventos importantes, podemos utilizar ILogger<T> no ASP.NET Core: 
+public class ProdutoService 
+{ 
+ private readonly ILogger<ProdutoService> _logger; 
+ public ProdutoService(ILogger<ProdutoService> logger) 
+ { 
+ _logger = logger; 
+ } 
+ public void AdicionarProduto(Produto produto) 
+ { 
+ _logger.LogInformation($"Produto {produto.Nome} adicionado em 
+{DateTime.UtcNow}"); 
+ } 
+} 
+Os logs podem ser visualizados no console ou configurados para serem salvos em 
+arquivos.
 
 ✅ Critérios de Avaliação
 
