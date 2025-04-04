@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "Novo Perfil",
+    "Projects": [
+      {
+        "Path": "MinhaApiComSQLite\\MinhaApiComSQLite.csproj",
+        "Action": "Start",
+        "DebugTarget": "MinhaApiComSQLite"
+      },
+      {
+        "Path": "WindowsFormsAPI\\WindowsFormsAPI.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
